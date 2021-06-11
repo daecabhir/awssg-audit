@@ -58,8 +58,8 @@ security_groups = [g for g in client.all_security_grooups()]
 security_groups_by_id = { g.id: g for g in security_groups }
 open_ingresses = [i for i in open_ingresses_in(security_groups)]
 
-print(open_ingresses)
-
 for i in open_ingresses:
-    print(i.get("ingress").get("IpRanges"))
-    print(i.get("ingress").get("Ipv6Ranges"))
+    print(f"Group ID: {i['group_id']}")
+    print(f"IPv4: {i['ingress']['IpRanges']}")
+    print(f"IPv6: {i['ingress']['Ipv6Ranges']}")
+    print("---")
